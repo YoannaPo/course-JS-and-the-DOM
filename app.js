@@ -8,7 +8,7 @@ firstCard.textContent = "I love frontend job";
 const container = document.createElement('span');
 container.textContent = ', rigt NOW!!';
 
-
+//Adding Content To The Page
 //create a brand new span element
 const newSpan = document.createElement('span');
 //create CONTENT inside a new span element
@@ -21,4 +21,41 @@ mainHeading.appendChild(newSpan);
 //The element that is about to be appended is added as the last child. So, in the example above, 
 //the <span> element will appear in the DOM as a child of the <h1>.
 //but it will appear at the end, after all text and any other elements that might be in the <h1>
+
+
+//Creating Text Nodes
+//create a paragraph element
+const myPara = document.createElement('p');
+//creates a text node
+const textOfParagraph = document.createTextNode('I am the text for the paragraph!');
+//appends the text node to the paragraph
+myPara.appendChild(textOfParagraph);
+//appends the paragraph to the tag
+document.body.appendChild(myPara);
+
+//Faster way with .textContent method
+const myPara1 = document.createElement('p');
+
+myPara.textContent = 'I am the text for the paragraph!';
+document.body.appendChild(myPara1);
+//instead of creating a new text node and appending it to an element, it's faster and 
+//easier to just update the element's text with the .textContent property.
+
+//Inserting HTML In Other Locations
+//The .insertAdjacentHTML() method has to be called with two arguments:
+
+//the location of the HTML
+//the HTML text that is going to be inserted
+// <!-- beforebegin -->
+// <p>
+//     <!-- afterbegin -->
+//     Existing text/HTML content
+//     <!-- beforeend -->
+// </p>
+// <!-- afterend -->
+
+const mainHeading3 = document.querySelector('#main-heading');
+const htmlTextToAdd = '<h2>Skydiving is fun!</h2>';
+
+mainHeading3.insertAdjacentHTML('afterend', htmlTextToAdd);
 
