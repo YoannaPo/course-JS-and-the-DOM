@@ -41,11 +41,13 @@ document.body.appendChild(myPara1);
 //instead of creating a new text node and appending it to an element, it's faster and 
 //easier to just update the element's text with the .textContent property.
 
+
 //Inserting HTML In Other Locations
 //The .insertAdjacentHTML() method has to be called with two arguments:
 
 //the location of the HTML
 //the HTML text that is going to be inserted
+//This method needs to be called on parent element
 // <!-- beforebegin -->
 // <p>
 //     <!-- afterbegin -->
@@ -59,3 +61,26 @@ const htmlTextToAdd = '<h2>Skydiving is fun!</h2>';
 
 mainHeading3.insertAdjacentHTML('afterend', htmlTextToAdd);
 
+
+//Remove page content
+//Pattern: <parent-element>.removeChild(<child-to-remove>);
+//removeChild() - require access to parent to function 
+//how to workaround this?
+//you can use the parentElement property to "move focus" to the element's parent. 
+//Then we can call .removeChild() 
+//(or .appendChild()) on that referenced parent element.
+
+const mainHeading5 = document.querySelector('h1');
+
+mainHeading5.parentElement.removeChild(mainHeading5);
+//This starts with the mainHeading variable. It calls .parentElement, 
+//so the focus of the next code is directed at the parent element. 
+//Then .removeChild() is called on the parent element. Finally, 
+//mainHeading itself is passed as the element that needs to be removed from its parent.
+//So an element uses itself to remove itself from its parent. Pretty cool
+
+
+//Remove child element directly
+const mainHeading7 = document.querySelector('h1');
+
+mainHeading7.remove(); 
